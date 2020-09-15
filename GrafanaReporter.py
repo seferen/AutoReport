@@ -4,7 +4,6 @@ from urllib import parse
 from os import path
 from os import mkdir
 
-
 dir = 'result'
 if not path.exists(dir) or not path.isdir(dir):
     mkdir(dir)
@@ -71,5 +70,6 @@ if __name__ == '__main__':
             for url in config.graphics[graf]:
                 urlToFile = getUrl(url=url, timeStart=test['timeStart'], timeEnd=test['timeEnd'])
                 print(urlToFile)
-                getFile(urlToFile, f'{test["name"]}{graf}{count}')
+                getFile(urlToFile,
+                        f'{test["name"]}{graf}{count}from{parcingDate(test["timeStart"])}to{parcingDate(test["timeEnd"])}')
                 count += 1
